@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UIExtensions implements BeforeEachCallback, AfterEachCallback {
+public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCallback {
 
     private WebDriver driver = null;
     @Override
