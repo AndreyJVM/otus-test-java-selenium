@@ -11,7 +11,7 @@
         <property name="fileNamePattern" value="module\-info\.java$"/>
     </module>
 
-    <module name="FileTabCharacter">
+    <module name="FileTabCharacter">F
         <property name="eachLine" value="true"/>
     </module>
 

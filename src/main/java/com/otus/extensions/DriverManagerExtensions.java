@@ -2,18 +2,15 @@ package com.otus.extensions;
 
 import com.otus.anotations.Driver;
 import com.otus.factories.WebDriverFactory;
-import com.otus.listeners.WebDriverListener;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCallback {
 
@@ -26,25 +23,27 @@ public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCal
         }
     }
 
-    private List<Field> getFields(Class<? extends Annotation> annotation, Class clazz){
-        return Arrays
-                .stream(clazz.getFields())
-                .filter((Field field) -> field.isAnnotationPresent(annotation)
-                        && field.getType().getName().equals(WebDriver.class.getName()))
-                .collect(Collectors.toList());
+    private Set<Field> getFields(Class<? extends Annotation> annotation, ExtensionContext extensionContext){
+        Set<Field> fields = new HashSet<>();
+        Class<?> testClass = extensionContext.getTestClass().get();
+        for(Field field: testClass.getDeclaredFields()) {
+            if (field.isAnnotationPresent(annotation)) {
+                fields.add(field);
+            }
+        }
+        return fields;
     }
 
     @Override
     public void beforeEach(ExtensionContext extensionContext) throws Exception {
-        Class clazz = extensionContext.getTestInstance().getClass();
-        List<Field> annotatedFields = getFields(Driver.class, clazz);
+        driver = new WebDriverFactory().create();
 
-        EventFiringWebDriver eventFiringWebDriver = new WebDriverFactory().create();
-        eventFiringWebDriver.register(new WebDriverListener());
-
-        for (Field field: annotatedFields){
-            field.setAccessible(true);
-            field.set(extensionContext.getTestInstance().get(), eventFiringWebDriver);
+        var fieldsToInject = getFields(Driver.class, extensionContext);
+        for (Field field: fieldsToInject) {
+            if(field.getType().getName().equals(WebDriver.class.getName())) {
+                field.setAccessible(true);
+                field.set(extensionContext.getTestInstance().get(), driver);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@
 
     <junit.version>5.8.1</junit.version>
     <selenium.java.version>3.141.59</selenium.java.version>
-    <webdriver.manager.version>4.2.0</webdriver.manager.version>
+    <webdriver.manager.version>5.6.3</webdriver.manager.version>
 
     <base.url/>
     <browser.version/>
