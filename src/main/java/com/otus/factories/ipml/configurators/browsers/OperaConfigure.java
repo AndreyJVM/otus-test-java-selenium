@@ -5,17 +5,19 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
+
 public class OperaConfigure implements IBrowserConfigure {
 
-    private String browserVersion = System.getProperty("browser.version");
-    @Override
-    public WebDriver configure() {
+  private String browserVersion = System.getProperty("browser.version");
 
-        OperaOptions operaOptions = new OperaOptions();
-        operaOptions.addArguments("start-maximized");
+  @Override
+  public WebDriver configure() {
 
-        WebDriverManager.operadriver().browserVersion(browserVersion).setup();
+    OperaOptions operaOptions = new OperaOptions();
+    operaOptions.addArguments("start-maximized");
 
-        return new OperaDriver(operaOptions);
-    }
+    WebDriverManager.operadriver().browserVersion(browserVersion).setup();
+
+    return new OperaDriver(operaOptions);
+  }
 }

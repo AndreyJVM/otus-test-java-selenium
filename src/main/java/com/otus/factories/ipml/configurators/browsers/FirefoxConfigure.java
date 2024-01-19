@@ -8,14 +8,15 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class FirefoxConfigure implements IBrowserConfigure {
 
-    private String browserVersion = System.getProperty("browser.version");
-    @Override
-    public WebDriver configure() {
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
-        firefoxOptions.addArguments("start-maximized");
+  private String browserVersion = System.getProperty("browser.version");
 
-        WebDriverManager.firefoxdriver().browserVersion(browserVersion).setup();
+  @Override
+  public WebDriver configure() {
+    FirefoxOptions firefoxOptions = new FirefoxOptions();
+    firefoxOptions.addArguments("start-maximized");
 
-        return new FirefoxDriver(firefoxOptions);
-    }
+    WebDriverManager.firefoxdriver().browserVersion(browserVersion).setup();
+
+    return new FirefoxDriver(firefoxOptions);
+  }
 }

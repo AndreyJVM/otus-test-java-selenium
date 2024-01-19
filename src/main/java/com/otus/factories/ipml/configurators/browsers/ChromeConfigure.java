@@ -8,15 +8,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeConfigure implements IBrowserConfigure {
 
-    private String browserVersion = System.getProperty("browser.version");
-    @Override
-    public WebDriver configure() {
+  private String browserVersion = System.getProperty("browser.version");
 
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("start-maximized");
+  @Override
+  public WebDriver configure() {
 
-        WebDriverManager.chromedriver().setup();
+    ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.addArguments("start-maximized");
 
-        return new ChromeDriver(chromeOptions);
-    }
+    WebDriverManager.chromedriver().setup();
+
+    return new ChromeDriver(chromeOptions);
+  }
 }
