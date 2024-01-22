@@ -9,8 +9,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.Optional;
-
 import static com.otus.ui.pages.MainPage.BASE_URL;
 
 /**
@@ -34,8 +32,9 @@ public class CourseListings_Test {
 
   @Test
   public void findCourseByNameTest() {
-    Optional<WebElement> firstCourse = mainPage.findCourseByNameSpecialization("Java");
-    WebElement webElement = firstCourse.get();
+    WebElement webElement = mainPage
+            .findCourseByNameSpecialization("Java")
+            .get();
     webElement.click();
   }
 }

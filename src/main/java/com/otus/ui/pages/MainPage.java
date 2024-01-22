@@ -21,10 +21,6 @@ public class MainPage extends AbsBasePage {
   @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/main/div/section[1]/div/div[1]")
   WebElement popularFirstCourse;
 
-  //Раздел специализация
-  @FindBy(css = ".fgNPoG")
-  List<WebElement> specializationSection;
-
   //Раздел специализация: первый курс
   @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/main/div/section[2]/div/div[1]")
   WebElement specializationSectionFirstCourse;
