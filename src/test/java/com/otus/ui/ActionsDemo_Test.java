@@ -30,7 +30,7 @@ public class ActionsDemo_Test {
   }
 
   @Test
-  public void moveMouseToRecommendationsFirstCourse() {
+  public void moveAndClickMouseToRecommendationsFirstCourse_Test() {
     WebElement firstElement = driver.findElement(By.cssSelector(".jnktxM .kbUYTE"));
 
     int defPause = 1000;

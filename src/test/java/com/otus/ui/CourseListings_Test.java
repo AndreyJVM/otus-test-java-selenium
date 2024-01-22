@@ -31,7 +31,7 @@ public class CourseListings_Test {
   }
 
   @Test
-  public void findCourseByNameTest() {
+  public void findCourseByName_Test() {
     WebElement webElement = mainPage
             .findCourseByNameSpecialization("Java")
             .get();
