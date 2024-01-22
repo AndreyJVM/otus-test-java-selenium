@@ -8,16 +8,13 @@ import org.openqa.selenium.opera.OperaOptions;
 
 public class OperaConfigure implements IBrowserConfigure {
 
-  private String browserVersion = System.getProperty("browser.version");
-
   @Override
   public WebDriver configure() {
 
     OperaOptions operaOptions = new OperaOptions();
     operaOptions.addArguments("start-maximized");
 
-    WebDriverManager.operadriver().browserVersion(browserVersion).setup();
-
+    WebDriverManager.operadriver().setup();
     return new OperaDriver(operaOptions);
   }
 }

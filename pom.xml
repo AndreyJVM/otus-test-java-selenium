@@ -19,6 +19,7 @@
 
     <base.url/>
     <browser.version/>
+    <webdriver.base.url>https://otus.ru/</webdriver.base.url>
     <browser>chrome</browser>
 
     <surefire.plugin.version>2.22.2</surefire.plugin.version>
@@ -66,11 +67,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.plugin.version}</version>
         <configuration>
-          <systemProperties>
-            <base.url>${base.url}</base.url>
+          <systemPropertyVariables>
             <browser>${browser}</browser>
-            <browser.version>${browser.version}</browser.version>
-          </systemProperties>
+            <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
 

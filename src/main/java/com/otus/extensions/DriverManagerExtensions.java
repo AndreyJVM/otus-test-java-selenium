@@ -2,10 +2,12 @@ package com.otus.extensions;
 
 import com.otus.anotations.Driver;
 import com.otus.factories.WebDriverFactory;
+import com.otus.listeners.WebDriverListener;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -14,7 +16,7 @@ import java.util.Set;
 
 public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCallback {
 
-  private WebDriver driver = null;
+  private EventFiringWebDriver driver = null;
 
   @Override
   public void afterEach(ExtensionContext extensionContext) throws Exception {
@@ -38,6 +40,7 @@ public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCal
   @Override
   public void beforeEach(ExtensionContext extensionContext) throws Exception {
     driver = new WebDriverFactory().create();
+    driver.register(new WebDriverListener());
 
     var fieldsToInject = getFields(Driver.class, extensionContext);
     for (Field field : fieldsToInject) {

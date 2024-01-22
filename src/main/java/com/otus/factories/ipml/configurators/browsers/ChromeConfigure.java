@@ -8,8 +8,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeConfigure implements IBrowserConfigure {
 
-  private String browserVersion = System.getProperty("browser.version");
-
   @Override
   public WebDriver configure() {
 

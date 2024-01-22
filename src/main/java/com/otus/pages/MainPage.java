@@ -20,6 +20,11 @@ public class MainPage extends AbsBasePage {
   @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/main/div/section[2]/div/div[1]/a/div/div/picture/img")
   WebElement specOfAQAEngineerButton;
 
+  //Раздел популярные курсы: первый курс
+  @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/main/div/section[1]/div/div[1]")
+  WebElement popularFirstCourse;
+
+
   public void clickOn() {
     enterAccountButton.click();
   }
@@ -30,5 +35,9 @@ public class MainPage extends AbsBasePage {
             .pause(1000)
             .click()
             .perform();
+  }
+
+  public void popularFirstCourseClick() {
+    popularFirstCourse.click();
   }
 }
