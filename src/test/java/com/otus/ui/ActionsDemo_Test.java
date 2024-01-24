@@ -38,7 +38,6 @@ public class ActionsDemo_Test {
             .moveToElement(firstElement)
             .pause(defPause)
             .click()
-            .pause(defPause)
             .perform();
   }
 }

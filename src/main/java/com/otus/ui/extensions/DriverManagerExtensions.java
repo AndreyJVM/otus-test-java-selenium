@@ -10,20 +10,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCallback {
 
   private EventFiringWebDriver driver = null;
-
-  @Override
-  public void afterEach(ExtensionContext extensionContext) throws Exception {
-    if (driver != null) {
-      driver.close();
-      driver.quit();
-    }
-  }
 
   private Set<Field> getFields(Class<? extends Annotation> annotation, ExtensionContext extensionContext) {
     Set<Field> fields = new HashSet<>();
@@ -38,8 +32,12 @@ public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCal
 
   @Override
   public void beforeEach(ExtensionContext extensionContext) throws Exception {
-    driver = new WebDriverFactory().create();
-    driver.register(new WebDriverListener());
+    driver = new WebDriverFactory()
+            .create()
+            .register(new WebDriverListener());
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().setScriptTimeout(2, TimeUnit.MINUTES);
+    driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
     var fieldsToInject = getFields(Driver.class, extensionContext);
     for (Field field : fieldsToInject) {
@@ -47,6 +45,14 @@ public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCal
         field.setAccessible(true);
         field.set(extensionContext.getTestInstance().get(), driver);
       }
+    }
+  }
+
+  @Override
+  public void afterEach(ExtensionContext extensionContext) throws Exception {
+    if (driver != null) {
+      driver.close();
+      driver.quit();
     }
   }
 }

@@ -2,6 +2,7 @@ package com.otus.ui;
 
 import com.otus.ui.anotations.Driver;
 import com.otus.ui.extensions.DriverManagerExtensions;
+import com.otus.ui.listeners.WebDriverListener;
 import com.otus.ui.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

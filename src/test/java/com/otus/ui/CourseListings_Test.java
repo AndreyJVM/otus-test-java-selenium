@@ -1,6 +1,7 @@
 package com.otus.ui;
 
 import com.otus.ui.anotations.Driver;
+import com.otus.ui.components.SpecializationSectorsComponent;
 import com.otus.ui.extensions.DriverManagerExtensions;
 import com.otus.ui.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,5 +35,17 @@ public class CourseListings_Test {
             .findCourseByNameSpecialization("Java")
             .get();
     webElement.click();
+  }
+
+  @Test
+  void findEarliestStartCourse() {
+    new SpecializationSectorsComponent(driver)
+            .getEarliestStartCourse();
+  }
+
+  @Test
+  void findLatestStartCourse() {
+    new SpecializationSectorsComponent(driver)
+            .getLatestStartCourse();
   }
 }

@@ -13,17 +13,18 @@ import java.util.List;
 import java.util.Locale;
 
 public abstract class AbsComponent<T> extends AbsBaseUtils {
-  {
-    Assertions.assertTrue(
-            waiterDefault.waitForCondition(ExpectedConditions.visibilityOfElementLocated(getComponentLocator())));
-  }
 
   public AbsComponent(WebDriver driver) {
     super(driver);
   }
 
-  protected String baseComponentLocator;
+  {
+    Assertions.assertTrue(waiterDefault
+                    .isWaitForCondition(ExpectedConditions
+                    .visibilityOfElementLocated(getComponentLocator())));
+  }
 
+  protected String baseComponentLocator;
 
   private By getComponentLocator() {
     Component component = getClass().getAnnotation(Component.class);
@@ -47,7 +48,7 @@ public abstract class AbsComponent<T> extends AbsBaseUtils {
             waiterDefault.waitingForElements(By.cssSelector(path));
   }
 
-  public LocalDate parseDateFromCourse(String input) {
+  public LocalDate parseDate(String input) {
 
     String formatted = input
             .replace("С ", "")
@@ -59,7 +60,9 @@ public abstract class AbsComponent<T> extends AbsBaseUtils {
       formatted += " " + LocalDate.now().getYear();
     }
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(new Locale("ru"));
+    DateTimeFormatter formatter = DateTimeFormatter
+            .ofPattern("d MMMM yyyy")
+            .withLocale(new Locale("ru"));
 
     return LocalDate.parse(formatted, formatter);
   }

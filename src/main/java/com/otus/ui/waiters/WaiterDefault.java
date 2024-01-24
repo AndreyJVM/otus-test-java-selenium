@@ -18,7 +18,7 @@ public class WaiterDefault {
 
   private final long second = 5;
 
-  public boolean waitForCondition(ExpectedCondition condition) {
+  public boolean isWaitForCondition(ExpectedCondition condition) {
     WebDriverWait webDriverWait = new WebDriverWait(driver, second);
     try {
       webDriverWait.until(condition);
@@ -30,8 +30,8 @@ public class WaiterDefault {
 
   public WebElement waitingForElement(By by) {
     try {
-      waitForElementVisible(by);
-      waitForElementClickable(by);
+      isWaitForElementVisible(by);
+      isWaitForElementClickable(by);
 
       return driver.findElement(by);
     } catch (Exception e) {
@@ -43,7 +43,7 @@ public class WaiterDefault {
 
   public List<WebElement> waitingForElements(By by) {
     try {
-      waitForElementVisible(by);
+      isWaitForElementVisible(by);
 
       return driver.findElements(by);
     } catch (Exception e) {
@@ -53,13 +53,13 @@ public class WaiterDefault {
     return null;
   }
 
-  public boolean waitForElementVisible(By by) {
-    return waitForCondition(ExpectedConditions
+  public boolean isWaitForElementVisible(By by) {
+    return isWaitForCondition(ExpectedConditions
             .visibilityOfElementLocated(by));
   }
 
-  public boolean waitForElementClickable(By by) {
-    return waitForCondition(ExpectedConditions
+  public boolean isWaitForElementClickable(By by) {
+    return isWaitForCondition(ExpectedConditions
             .elementToBeClickable(by));
   }
 }
