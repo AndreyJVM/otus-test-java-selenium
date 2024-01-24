@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-import static com.otus.ui.pages.MainPage.BASE_URL;
 @ExtendWith(DriverManagerExtensions.class)
 public abstract class BaseTest {
   @Driver
@@ -17,6 +16,6 @@ public abstract class BaseTest {
   @BeforeEach
   public void setUp() {
     mainPage = new MainPage(driver);
-    driver.get(BASE_URL);
+    driver.get(MainPage.BASE_URL);
   }
 }

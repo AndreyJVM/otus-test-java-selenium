@@ -9,26 +9,30 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
+    <!--Project-->
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <!--Dependencies-->
     <junit.version>5.8.1</junit.version>
     <selenium.java.version>3.141.59</selenium.java.version>
     <webdriver.manager.version>5.6.3</webdriver.manager.version>
+    <lombok.version>1.18.30</lombok.version>
 
+    <!--System Properties-->
     <base.url/>
     <webdriver.base.url>https://otus.ru/</webdriver.base.url>
     <browser>chrome</browser>
 
+    <!--Plugins-->
     <surefire.plugin.version>2.22.2</surefire.plugin.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-
     <spotbugs.maven.plagin>4.8.2.0</spotbugs.maven.plagin>
     <spotbugs.version>4.8.3</spotbugs.version>
-
     <maven-checkstyle-plugin>3.3.1</maven-checkstyle-plugin>
   </properties>
+
 
   <dependencies>
     <dependency>
@@ -36,17 +40,26 @@
       <artifactId>junit-jupiter</artifactId>
       <version>${junit.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>${selenium.java.version}</version>
     </dependency>
+
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${webdriver.manager.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
   </dependencies>
+
 
   <profiles>
     <profile>
@@ -55,15 +68,24 @@
         <base.url>https://otus.ru</base.url>
       </properties>
     </profile>
+    <profile>
+      <id>test</id>
+      <properties>
+        <webdriver.base.url>https://test.otus.ru</webdriver.base.url>
+      </properties>
+    </profile>
   </profiles>
+
 
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.plugin.version}</version>
         <configuration>
+          <!--System.getProperties-->
           <systemPropertyVariables>
             <browser>${browser}</browser>
             <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
@@ -114,6 +136,5 @@
         </executions>
       </plugin>
     </plugins>
-
   </build>
 </project>

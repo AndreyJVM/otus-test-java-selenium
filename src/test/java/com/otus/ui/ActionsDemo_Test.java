@@ -2,6 +2,7 @@ package com.otus.ui;
 
 import com.otus.ui.anotations.Driver;
 import com.otus.ui.extensions.DriverManagerExtensions;
+import com.otus.ui.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,8 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import static com.otus.ui.pages.MainPage.BASE_URL;
 
 /**
  * Задание №4
@@ -25,7 +24,7 @@ public class ActionsDemo_Test {
 
   @BeforeEach
   public void setUp() {
-    driver.get(BASE_URL);
+    driver.get(MainPage.BASE_URL);
     actions = new Actions(driver);
   }
 

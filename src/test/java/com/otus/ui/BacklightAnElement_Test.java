@@ -7,9 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
-
-import static com.otus.ui.pages.MainPage.BASE_URL;
-
 /**
  * Задание №2
  * Реализовать подсветку элементов перед нажатием.
@@ -28,7 +25,7 @@ public class BacklightAnElement_Test {
   @BeforeEach
   public void setUp() {
     mainPage = new MainPage(driver);
-    driver.get(BASE_URL);
+    driver.get(MainPage.BASE_URL);
   }
 
   @Test

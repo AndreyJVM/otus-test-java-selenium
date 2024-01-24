@@ -13,6 +13,9 @@ public class ChromeConfigure implements IBrowserConfigure {
 
     ChromeOptions chromeOptions = new ChromeOptions();
     chromeOptions.addArguments("start-maximized");
+    chromeOptions.addArguments("--ignore-certificate-errors");
+    chromeOptions.addArguments("--remote-allow-origins=*");
+    chromeOptions.addArguments("--homepage=about:blank");
 
     WebDriverManager.chromedriver().setup();
 

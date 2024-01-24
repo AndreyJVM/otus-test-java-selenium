@@ -9,8 +9,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static com.otus.ui.pages.MainPage.BASE_URL;
-
 /**
  * Задание №3
  * На главно странице Otus'a снизу найти список курсов(популярные курсы, специализации, рекомендации) и реализовать:
@@ -27,7 +25,7 @@ public class CourseListings_Test {
   @BeforeEach
   public void setUp() {
     mainPage = new MainPage(driver);
-    driver.get(BASE_URL);
+    driver.get(MainPage.BASE_URL);
   }
 
   @Test
