@@ -32,7 +32,7 @@ public class ActionsDemo_Test {
   public void moveAndClickMouseToRecommendationsFirstCourse_Test() {
     WebElement firstElement = driver.findElement(By.cssSelector(".jnktxM .kbUYTE"));
 
-    int defPause = 1000;
+    int defPause = 2000;
 
     actions
             .moveToElement(firstElement)

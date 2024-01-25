@@ -17,11 +17,11 @@ public class MainPage extends AbsBasePage {
   //Локаторы Xpath
   //Раздел популярные курсы: первый курс
   @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/main/div/section[1]/div/div[1]")
-  WebElement popularFirstCourse;
+  private WebElement popularFirstCourse;
 
   //Раздел специализация: первый курс
   @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/main/div/section[2]/div/div[1]")
-  WebElement specializationSectionFirstCourse;
+  private WebElement specializationSectionFirstCourse;
 
 
   public void popularFirstCourseClick() {
