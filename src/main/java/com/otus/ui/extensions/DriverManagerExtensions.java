@@ -35,9 +35,6 @@ public class DriverManagerExtensions implements BeforeEachCallback, AfterEachCal
     driver = new WebDriverFactory()
             .create()
             .register(new WebDriverListener());
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.manage().timeouts().setScriptTimeout(2, TimeUnit.MINUTES);
-    driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
     var fieldsToInject = getFields(Driver.class, extensionContext);
     for (Field field : fieldsToInject) {
