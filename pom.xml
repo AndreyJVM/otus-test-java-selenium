@@ -18,6 +18,8 @@
     <junit.version>5.8.1</junit.version>
     <selenium.java.version>3.141.59</selenium.java.version>
     <webdriver.manager.version>5.6.3</webdriver.manager.version>
+    <cucumber-version>5.5.0</cucumber-version>
+    <guice-version>5.1.0</guice-version>
 
     <!--System Properties-->
     <base.url/>
@@ -50,6 +52,30 @@
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${webdriver.manager.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>${cucumber-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-guice</artifactId>
+      <version>${cucumber-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>${guice-version}</version>
     </dependency>
   </dependencies>
 

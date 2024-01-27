@@ -1,10 +1,10 @@
 package com.otus.ui.components;
 
 import com.otus.ui.anotations.Component;
+import com.otus.ui.support.GuiceScoped;
 import com.otus.ui.utils.AbsBaseUtils;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.LocalDate;
@@ -12,10 +12,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
-public abstract class AbsComponent<T> extends AbsBaseUtils {
+public abstract class AbsComponent<T> extends AbsBaseUtils<T> {
 
-  public AbsComponent(WebDriver driver) {
-    super(driver);
+  public AbsComponent(GuiceScoped guiceScoped) {
+    super(guiceScoped);
   }
 
   {

@@ -1,15 +1,15 @@
 package com.otus.ui.pages;
 
+import com.otus.ui.support.GuiceScoped;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.Optional;
 
-public class MainPage extends AbsBasePage {
+public class MainPage extends AbsBasePage<MainPage> {
 
-  public MainPage(WebDriver driver) {
-    super(driver);
+  public MainPage(GuiceScoped guiceScoped) {
+    super(guiceScoped);
   }
 
   public static final String BASE_URL = System.getProperty("webdriver.base.url");

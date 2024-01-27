@@ -2,8 +2,8 @@ package com.otus.ui.components;
 
 import com.otus.ui.anotations.Component;
 import com.otus.ui.pages.MainPage;
+import com.otus.ui.support.GuiceScoped;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -13,8 +13,8 @@ import java.util.Map;
 @Component("//h2[contains(text(),'Специализации')]/ancestor::section")
 public class SpecializationSectorsComponent extends AbsComponent{
 
-  public SpecializationSectorsComponent(WebDriver driver) {
-    super(driver);
+  public SpecializationSectorsComponent(GuiceScoped guiceScoped) {
+    super(guiceScoped);
   }
 
   String startCourseLocator = baseComponentLocator + "//span[@class='sc-12yergf-7 dPBnbE']";
@@ -42,7 +42,7 @@ public class SpecializationSectorsComponent extends AbsComponent{
             .click()
             .perform();
 
-    return new MainPage(driver);
+    return new MainPage(guiceScoped);
   }
 
   public MainPage getLatestStartCourse() {
@@ -68,6 +68,6 @@ public class SpecializationSectorsComponent extends AbsComponent{
             .click()
             .perform();
 
-    return new MainPage(driver);
+    return new MainPage(guiceScoped);
   }
 }

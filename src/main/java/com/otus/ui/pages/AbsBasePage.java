@@ -1,12 +1,12 @@
 package com.otus.ui.pages;
 
+import com.otus.ui.support.GuiceScoped;
 import com.otus.ui.utils.AbsBaseUtils;
-import org.openqa.selenium.WebDriver;
 
-public abstract class AbsBasePage<T> extends AbsBaseUtils {
+public abstract class AbsBasePage<T> extends AbsBaseUtils<T> {
 
-  public AbsBasePage(WebDriver driver) {
-    super(driver);
+  public AbsBasePage(GuiceScoped guiceScoped) {
+    super(guiceScoped);
   }
 
   public T open() {
