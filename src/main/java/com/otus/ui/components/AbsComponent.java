@@ -1,5 +1,6 @@
 package com.otus.ui.components;
 
+import com.google.inject.Inject;
 import com.otus.ui.anotations.Component;
 import com.otus.ui.support.GuiceScoped;
 import com.otus.ui.utils.AbsBaseUtils;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 public abstract class AbsComponent<T> extends AbsBaseUtils<T> {
-
+  @Inject
   public AbsComponent(GuiceScoped guiceScoped) {
     super(guiceScoped);
   }

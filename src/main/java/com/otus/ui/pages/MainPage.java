@@ -1,18 +1,18 @@
 package com.otus.ui.pages;
 
+import com.google.inject.Inject;
 import com.otus.ui.support.GuiceScoped;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.Optional;
 
 public class MainPage extends AbsBasePage<MainPage> {
-
+  @Inject
   public MainPage(GuiceScoped guiceScoped) {
     super(guiceScoped);
   }
-
-  public static final String BASE_URL = System.getProperty("webdriver.base.url");
 
   //Локаторы Xpath
   //Раздел популярные курсы: первый курс
