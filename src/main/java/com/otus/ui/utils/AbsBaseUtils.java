@@ -11,7 +11,6 @@ public abstract class AbsBaseUtils<T> {
   protected WebDriver driver;
   protected WaiterDefault waiterDefault;
   protected Actions actions;
-
   protected GuiceScoped guiceScoped;
 
   public AbsBaseUtils(GuiceScoped guiceScoped) {

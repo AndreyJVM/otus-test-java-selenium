@@ -18,11 +18,12 @@ public abstract class AbsBasePage<T> extends AbsBaseUtils<T> {
 
     if(clazz.isAnnotationPresent(Path.class)) {
       Path path = clazz.getAnnotation(Path.class);
-      return path.value().endsWith("/") ? path.value() : path.value() + "/";
+      return path.value().endsWith("/") ? path.value() : path.value() + "/"; 
     }
 
     return "";
   }
+
   public T open() {
     this.driver.get(BASE_URL + getPagePath());
     return (T) this;
