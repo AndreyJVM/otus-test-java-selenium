@@ -20,8 +20,8 @@ import org.openqa.selenium.WebElement;
 public class CourseListings_Test {
 
   @Driver
-  public WebDriver driver;
-  public MainPage mainPage;
+  private WebDriver driver;
+  private MainPage mainPage;
 
   @BeforeEach
   public void setUp() {
