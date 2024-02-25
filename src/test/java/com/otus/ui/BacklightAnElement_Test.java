@@ -25,8 +25,7 @@ public class BacklightAnElement_Test {
 
   @BeforeEach
   public void setUp() {
-    mainPage = new MainPage(driver);
-    driver.get(MainPage.BASE_URL);
+    new MainPage(driver).open();
   }
 
   @Test

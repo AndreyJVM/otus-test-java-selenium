@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
-public abstract class AbsComponent<T> extends AbsBaseUtils {
+public abstract class AbsComponent<T> extends AbsBaseUtils<T> {
 
   public AbsComponent(WebDriver driver) {
     super(driver);

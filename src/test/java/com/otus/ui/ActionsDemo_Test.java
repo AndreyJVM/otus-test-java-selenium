@@ -24,15 +24,15 @@ public class ActionsDemo_Test {
 
   @BeforeEach
   public void setUp() {
-    driver.get(MainPage.BASE_URL);
+    new MainPage(driver).open();
     actions = new Actions(driver);
   }
 
   @Test
   public void moveAndClickMouseToRecommendationsFirstCourse_Test() {
-    WebElement firstElement = driver.findElement(By.cssSelector(".jnktxM .kbUYTE"));
+    WebElement firstElement = driver.findElement(By.cssSelector(".hSgdVZ .hATaOW"));
 
-    int defPause = 1000;
+    final int defPause = 1000;
 
     actions
             .moveToElement(firstElement)

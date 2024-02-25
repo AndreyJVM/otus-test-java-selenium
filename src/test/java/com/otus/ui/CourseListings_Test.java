@@ -25,8 +25,7 @@ public class CourseListings_Test {
 
   @BeforeEach
   public void setUp() {
-    mainPage = new MainPage(driver);
-    driver.get(MainPage.BASE_URL);
+    mainPage = new MainPage(driver).open();
   }
 
   @Test

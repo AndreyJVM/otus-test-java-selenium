@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class AbsBaseUtils {
+public abstract class AbsBaseUtils<T> {
 
   protected WebDriver driver;
   protected WaiterDefault waiterDefault;

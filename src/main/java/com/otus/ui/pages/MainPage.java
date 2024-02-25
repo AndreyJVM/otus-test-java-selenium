@@ -1,18 +1,18 @@
 package com.otus.ui.pages;
 
+import com.otus.ui.anotations.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import java.util.Optional;
-
-public class MainPage extends AbsBasePage {
+@URL("/")
+public class MainPage extends AbsBasePage<MainPage> {
 
   public MainPage(WebDriver driver) {
     super(driver);
   }
-
-  public static final String BASE_URL = System.getProperty("webdriver.base.url");
 
   //Локаторы Xpath
   //Раздел популярные курсы: первый курс
