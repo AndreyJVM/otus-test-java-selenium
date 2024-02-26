@@ -2,7 +2,6 @@ package com.otus.ui;
 
 import com.otus.ui.anotations.Driver;
 import com.otus.ui.extensions.DriverManagerExtensions;
-import com.otus.ui.listeners.WebDriverListener;
 import com.otus.ui.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +24,7 @@ public class BacklightAnElement_Test {
 
   @BeforeEach
   public void setUp() {
-    new MainPage(driver).open();
+    mainPage = new MainPage(driver).open();
   }
 
   @Test

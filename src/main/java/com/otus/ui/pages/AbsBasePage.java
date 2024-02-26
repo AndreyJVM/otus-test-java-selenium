@@ -4,7 +4,6 @@ import com.otus.ui.anotations.URL;
 import com.otus.ui.utils.AbsBaseUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 

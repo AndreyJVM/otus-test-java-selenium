@@ -17,11 +17,17 @@ public class SpecializationSectorsComponent extends AbsComponent{
     super(driver);
   }
 
-  String startCourseLocator = baseComponentLocator + "//span[@class='sc-12yergf-7 dPBnbE']";
+  private String startCourseLocator = "//span[contains(text(),'С')]"; //Xpath позволяющий извлекать строку с датой
 
+  /**
+   * На главной странице в разделе специализация, потск курса стартуещего раньше всех
+   * */
   public MainPage getEarliestStartCourse() {
 
-    List<WebElement> dateInfoElements = waiterDefault.waitingForElements(By.xpath(startCourseLocator));
+    List<WebElement> dateInfoElements = waiterDefault
+            .waitingForElements(By.xpath(
+                    getFullXPathWithAComponent(startCourseLocator)));
+
     Map<LocalDate, WebElement> coursesMap = new HashMap<>();
     LocalDate startCourseDate;
 
@@ -45,9 +51,15 @@ public class SpecializationSectorsComponent extends AbsComponent{
     return new MainPage(driver);
   }
 
+  /**
+   * На главной странице в разделе специализация, потск курса стартуещего позже всех
+   * */
   public MainPage getLatestStartCourse() {
 
-    List<WebElement> dateInfoElements = waiterDefault.waitingForElements(By.xpath(startCourseLocator));
+    List<WebElement> dateInfoElements = waiterDefault
+            .waitingForElements(By.xpath(
+                    getFullXPathWithAComponent(startCourseLocator)));
+
     Map<LocalDate, WebElement> coursesMap = new HashMap<>();
     LocalDate startCourseDate;
 
@@ -69,5 +81,14 @@ public class SpecializationSectorsComponent extends AbsComponent{
             .perform();
 
     return new MainPage(driver);
+  }
+
+  /**
+   * Метод формирует новый XPath на основе:
+   * первая часть значения аннотации @Component(value =)
+   * второй части исходя из условий задачи
+   * */
+  private String getFullXPathWithAComponent(String addSecondPath) {
+    return baseComponentLocator + addSecondPath;
   }
 }
