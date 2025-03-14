@@ -1,6 +1,5 @@
 package com.otus.ui.factories.ipml.configurators.browsers;
 
-import com.otus.ui.factories.ipml.configurators.IBrowserConfigure;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.opera.OperaDriver;

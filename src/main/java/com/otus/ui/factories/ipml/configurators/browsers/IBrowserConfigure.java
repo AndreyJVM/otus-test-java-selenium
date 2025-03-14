@@ -1,4 +1,4 @@
-package com.otus.ui.factories.ipml.configurators;
+package com.otus.ui.factories.ipml.configurators.browsers;
 
 import org.openqa.selenium.WebDriver;
 
