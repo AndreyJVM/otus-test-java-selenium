@@ -4,6 +4,7 @@ import com.otus.ui.anotations.Driver;
 import com.otus.ui.extensions.DriverManagerExtensions;
 import com.otus.ui.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
@@ -28,11 +29,13 @@ public class BacklightAnElement_Test {
   }
 
   @Test
+  @Tag("NoSuchElementException")
   void backlightAnElementPopular_Test() {
     mainPage.popularFirstCourseClick();
   }
 
   @Test
+  @Tag("NoSuchElementException")
   void backlightAnElementSpecial_Test() {
     mainPage.specializationFirstCourseClick();
   }

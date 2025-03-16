@@ -5,6 +5,7 @@ import com.otus.ui.components.SpecializationSectorsComponent;
 import com.otus.ui.extensions.DriverManagerExtensions;
 import com.otus.ui.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +30,7 @@ public class CourseListings_Test {
   }
 
   @Test
+  @Tag("org.openqa.selenium.remote.ProtocolHandshake")
   public void findCourseByName_Test() {
     WebElement webElement = mainPage
             .findCourseByNameSpecialization("Java")
@@ -37,12 +39,14 @@ public class CourseListings_Test {
   }
 
   @Test
+  @Tag("AssertionFailedError")
   void findEarliestStartCourse() {
     new SpecializationSectorsComponent(driver)
             .getEarliestStartCourse();
   }
 
   @Test
+  @Tag("AssertionFailedError")
   void findLatestStartCourse() {
     new SpecializationSectorsComponent(driver)
             .getLatestStartCourse();
