@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public abstract class AbsBasePage<T> extends AbsBaseUtils<T> {
 
-  public static final String BASE_URL = System.getProperty("webdriver.base.url");
+  public static final String BASE_URL = System.getProperty("otus.base.url");
 
   public AbsBasePage(WebDriver driver) {
     super(driver);

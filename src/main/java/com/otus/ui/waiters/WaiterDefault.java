@@ -10,7 +10,7 @@ import java.util.List;
 
 public class WaiterDefault {
 
-  private WebDriver driver = null;
+  private  WebDriver driver;
 
   public WaiterDefault(WebDriver driver) {
     this.driver = driver;

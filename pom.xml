@@ -22,7 +22,8 @@
 
     <!--System Properties-->
     <base.url/>
-    <webdriver.base.url>https://otus.ru/</webdriver.base.url>
+    <otus.base.url>https://otus.ru/</otus.base.url>
+    <remote.webdriver.url>http://localhost:4444/wd/hub</remote.webdriver.url>
     <browser>chrome</browser>
 
     <!--Plugins-->
@@ -88,7 +89,8 @@
           <!--System.getProperties-->
           <systemPropertyVariables>
             <browser>${browser}</browser>
-            <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+            <otus.base.url>${otus.base.url}</otus.base.url>
+            <remote.webdriver.url>${remote.webdriver.url}</remote.webdriver.url>
           </systemPropertyVariables>
         </configuration>
       </plugin>
